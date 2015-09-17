@@ -1,6 +1,7 @@
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.function.Function;
+import java.util.Arrays;
+import java.util.stream.Stream;
+
+import com.sun.istack.internal.NotNull;
 
 /**
  * 
@@ -12,7 +13,7 @@ import java.util.function.Function;
  */
 public class LambdaExpression {
 
-	public static void main(String str[]){
+	@NotNull public static void main(String str[]){
 
 		SingleMethodInterface obj = (a, b) -> {System.out.println("I am in the method.." + a + b);
 		System.out.println("Multi lines are supported.. Using curley braces");};
@@ -22,7 +23,24 @@ public class LambdaExpression {
 		subSingleMethodInterface  intface = (a, b)  -> System.out.println(a+b);
 		((SingleMethodInterface)intface).print1();
 		
+//		List<E> abc = new ArrayList<E>();
+//		
+//		Optional a ;
+//		Stream<String> s;
+//		
+		//s.filter(s-> s.contains("sdfsdf")).forEach(action). ;
 		
+		Arrays.stream(new int[] {1, 2, 3})
+	    .map(n -> 2)
+	    .average()
+	    .ifPresent(System.out::println); 
+
+		Stream.of("a1", "a2", "a3")
+	    .map(s -> s.substring(0))
+	    .mapToInt(Integer::parseInt)
+	    .max()
+	    .ifPresent(System.out::println);  // 3
+
 		
 		
 	}
